@@ -13,3 +13,5 @@ Install the dependencies
 Run the server
 
 	npm start
+
+By default the server will be reachable at <http://localhost:8000/>.
