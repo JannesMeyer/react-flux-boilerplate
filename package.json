@@ -12,24 +12,24 @@
   "author": "Jannes Meyer <jannes.meyer@gmail.com>",
   "license": "GPLv3",
   "dependencies": {
-    "autoprefixer-loader": "2.0.0",
-    "classnames": "2.1.2",
-    "css-loader": "0.14.5",
-    "eventemitter3": "1.1.0",
-    "express": "4.12.4",
-    "flux": "2.0.3",
-    "morgan": "1.6.0",
-    "normalize.css": "3.0.3",
-    "object-assign": "3.0.0",
-    "react": "0.13.3"
+    "autoprefixer-loader": "2.x",
+    "classnames": "2.x",
+    "css-loader": "0.x",
+    "eventemitter3": "1.x",
+    "express": "4.x",
+    "flux": "2.x",
+    "morgan": "1.x",
+    "normalize.css": "3.x",
+    "object-assign": "3.x",
+    "react": "0.x"
   },
   "devDependencies": {
-    "babel-core": "5.5.8",
-    "babel-loader": "5.1.4",
-    "less": "2.5.1",
-    "less-loader": "2.2.0",
-    "style-loader": "0.12.3",
-    "node-libs-browser": "0.5.2",
-    "webpack": "1.9.11"
+    "babel-core": "5.x",
+    "babel-loader": "5.x",
+    "less": "2.x",
+    "less-loader": "2.x",
+    "style-loader": "0.x",
+    "node-libs-browser": "0.x",
+    "webpack": "1.x"
   }
 }
