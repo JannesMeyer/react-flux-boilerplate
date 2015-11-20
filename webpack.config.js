@@ -1,13 +1,12 @@
 'use strict';
 
 var webpack = require('webpack');
-var assign  = require('object-assign');
-var path    = require('path');
+var path = require('path');
 var absolutePath = path.join.bind(path, __dirname);
 
-//
+//////////////////////////
 // Webpack configuration
-//
+//////////////////////////
 var config = {
   cache: true,
   module: {
@@ -20,32 +19,23 @@ var config = {
 };
 
 if (process.env.NODE_ENV === 'production') {
-  //
   // Plugins for production
-  //
-
   config.plugins = [
     new webpack.DefinePlugin({ __DEV__: false, 'process.env.NODE_ENV': '"production"' }),
-    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({ comments: / ^/, compress: { warnings: false }})
   ];
-
 } else {
-  //
   // Plugins for development
-  //
-
   config.plugins = [
     new webpack.DefinePlugin({ __DEV__: true })
   ];
-
 }
 
-//
+///////////////////////
 // Client-side bundle
-//
+///////////////////////
 
-var appConfig = assign({
+var clientConfig = Object.assign({
   entry: './src/app.js',
   output: {
     path: './public/build/',
@@ -53,18 +43,18 @@ var appConfig = assign({
   }
 }, config);
 
-//
-// (very light-weight) server-side bundle
-//
+///////////////////////
+// Server-side bundle
+///////////////////////
 
-var serverConfig = assign({
+var serverConfig = Object.assign({
   entry: './src/server.js',
   output: {
     path: './build/',
     filename: 'server.js',
     libraryTarget: 'commonjs2'
   },
-  externals: /^[a-z][a-z\.\-0-9]*$/, // Don't bundle node modules
+  externals: /^[a-z][a-z\d\.\-]*$/, // Don't bundle packages
   target: 'node',
   node: {
     console: false,
@@ -76,4 +66,4 @@ var serverConfig = assign({
   }
 }, config);
 
-module.exports = [ appConfig, serverConfig ];
+module.exports = [ clientConfig, serverConfig ];
